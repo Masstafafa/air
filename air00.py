@@ -1,14 +1,18 @@
 import sys
 
 # Fonctions utilisées:
-def get_values(arguments):
-    arguments.sort()
-    number_min = int(arguments[0])
-    number_max = int(arguments[1])
-    
-    for i in range(number_min, number_max):
-        print(i, end=" ")
-
+def split_chain(string_to_cut, string_separator):
+    temporary_word = ""
+    list = []
+    for chr in string_to_cut:
+        if chr in string_separator:
+            list.append(temporary_word)
+            temporary_word = ""
+        else : 
+            temporary_word += chr
+    if temporary_word != "":
+        list.append(temporary_word)
+    return list
 
 # Gestion d'erreurs :
 def is_valid_length(arguments):
@@ -23,13 +27,17 @@ def get_arguments():
     return arguments
 
 # Résolution :
-def display_numbers():
+def get_split_chain():
     arguments = get_arguments()
     if not is_valid_length(arguments):
         return
-    if not is_valid_arguments(arguments):
-        return
-    get_values(arguments)
-    
+    string_separator = " ", "\n", "\t"
+    return split_chain(arguments[0], string_separator)
+
 # Affichage :
-display_numbers()
+def display():
+    splited_chain = get_split_chain()
+    for word in splited_chain:
+        print(word)
+
+display()
