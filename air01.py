@@ -20,14 +20,9 @@ import sys
 # Fonctions utilisées:
 def split_chain(string_to_cut, string_separator):
     index_separator = string_to_cut.find(string_separator)
-    temporary_word = ""
-    list = []
-    '''toutes les lettres avant l'index_separator doivent etre misent de cote, et tout celles apres également'''
-    for chr in string_to_cut:
-
-              
-
-        
+    length_separator = len(string_separator)
+    list = string_to_cut.split(string_separator)
+    return list
 
 # Gestion d'erreurs :
 def is_valid_length(arguments):
