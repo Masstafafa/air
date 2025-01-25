@@ -27,15 +27,9 @@ def split_chain(string_to_cut, string_separator):
     return list
 
 # Gestion d'erreurs :
-def is_valid_arguments(arguments):
+def is_valid_length(arguments):
     if len(arguments) != 2:
         print("Erreur : Merci d'indiquer deux arguments entre guillemets")
-        return False
-    if arguments[0] == "" or arguments[1] == "":
-        print("Erreur : Vous ne pouvez pas indiquer des arguments vides")
-        return False
-    if arguments[1] not in arguments[0]:
-        print("Erreur : Le separateur n'est pas présent dans la phrase")
         return False
     return True
 
@@ -47,7 +41,7 @@ def get_arguments():
 # Résolution :
 def get_split_chain():
     arguments = get_arguments()
-    if not is_valid_arguments(arguments):
+    if not is_valid_length(arguments):
         return
     string_separator = arguments[1]
     return split_chain(arguments[0], string_separator)
