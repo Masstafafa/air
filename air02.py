@@ -20,19 +20,17 @@ import sys
 
 # Fonctions utilisées:
 def assemble_chain(array_of_strings, separator):
-    list = []
-    while string_separator in string_to_cut:
-        index_separator = string_to_cut.find(string_separator)
-        length_separator = len(string_separator)
-        list.append(string_to_cut[:index_separator])
-        string_to_cut = string_to_cut[(index_separator + length_separator):]
-    list.append(string_to_cut) 
-    return list
+    final_string = ''
+    for string in array_of_strings[:-1]: #check tous les arguments sauf le dernier qui est le separateur
+        final_string += string #ajoute le mot
+        final_string += separator #ajoute le separateur
+    final_string += array_of_strings[-2]  # ajoute le dernier mot sans séparateur
+    return final_string
 
 # Gestion d'erreurs :
 def is_valid_length(arguments):
-    if len(arguments) < 2:
-        print("Erreur : Merci d'indiquer un minimum de deux arguments entre guillemets")
+    if len(arguments) < 3:
+        print("Erreur : Merci d'indiquer un minimum de trois arguments entre guillemets, deux arguments et un séparateur")
         return False
     return True
 
@@ -42,17 +40,16 @@ def get_arguments():
     return arguments
 
 # Résolution :
-def get_split_chain():
+def get_assembled_chain():
     arguments = get_arguments()
     if not is_valid_length(arguments):
         return
-    string_separator = arguments[-1]
-    return split_chain(arguments[0], string_separator)
+    separator = arguments[-1]
+    return assemble_chain(arguments[:-1], separator)
 
 # Affichage :
 def display():
-    splited_chain = get_split_chain()
-    for word in splited_chain:
-        print(word)
+    assembled_chain = get_assembled_chain()
+    print(assembled_chain)
 
 display()
