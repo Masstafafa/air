@@ -50,6 +50,7 @@ def get_assembled_chain():
 # Affichage :
 def display():
     assembled_chain = get_assembled_chain()
-    print(assembled_chain)
+    if assembled_chain is not None:  # Vérifie si on a un résultat
+        print(assembled_chain)
 
 display()
