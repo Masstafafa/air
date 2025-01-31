@@ -4,7 +4,7 @@ import sys
 def find_intruder(arguments):
     # string_with_no_intruder = [] -> dans le cas ou on veut aller plus loin et si il y a plusieurs arguments uniques : bien penser à increment la liste avec .append()
     for arg in arguments: #check tous les arguments 
-        count = 0 #compteur de l'argument si il y en a qu'un le retourner sinon ne pas mettre à jour la variable string with no intruder
+        count = 0 #compteur de l'argument si il y en a qu'un le retourner 
         for check_arg in arguments: #on check tous les arguments
             if arg == check_arg:
                 count += 1 

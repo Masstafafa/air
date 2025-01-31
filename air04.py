@@ -4,7 +4,7 @@ import sys
 def find_repetitive_character(arguments):
     new_string = '' #Création d'une variable pour mettre la phrase
     for i in range(len(arguments) -1): #longueur de la phrase
-        current_chr = arguments[i] #on compare les lettres
+        current_chr = arguments[i]
         next_chr = arguments[i + 1]
         if current_chr != next_chr:
             new_string += current_chr
