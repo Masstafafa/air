@@ -8,7 +8,6 @@ def insert_last_number(numbers, last_number):
     number_to_insert = int(last_number) #convertit le dernier chiffre a inserer
     new_list_sorted = [] #creation d'une liste pour la nouvelle liste triée
     inserted_number = False
-
     for number in new_numbers:
         if inserted_number == True:
             new_list_sorted.append(number)
@@ -27,7 +26,7 @@ def insert_last_number(numbers, last_number):
 
 # Gestion d'erreurs :
 
-def is_valid_length(arguments): #vérifie qu'il y a bien deux argumens au moins
+def is_valid_length(arguments): #vérifie qu'il y a bien trois argumens au moins
     if len(arguments) < 3:
         print("Erreur : Merci d'indiquer au moins trois arguments qui sont des nombres")
         return False
@@ -36,7 +35,7 @@ def is_valid_length(arguments): #vérifie qu'il y a bien deux argumens au moins
 def is_valid_arguments(arguments): #vérifie que les arguments sont bien des chiffres
     for argument in arguments:
         if not argument.isdigit():
-            print("Erreur : Merci d'indiquer au moins deux arguments qui sont des nombres")
+            print("Erreur : Merci d'indiquer au moins trois arguments qui sont des nombres")
             return False
     return True
 
