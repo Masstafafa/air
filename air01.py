@@ -41,7 +41,6 @@ def print_splited_string() -> list[str] | None:
     for word in splited_chain:
         print(word)
 
-
 # Affichage :
 
 print_splited_string()
