@@ -38,9 +38,6 @@ def print_splited_chain() -> list[str] | None:
     separator = arguments[1]
     string_to_cut = arguments[0]
     splited_chain = split_chain(string_to_cut, separator)
-    if splited_chain is None:
-        return
-    
     for word in splited_chain:
         print(word)
 

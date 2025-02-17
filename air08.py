@@ -26,7 +26,7 @@ def fusion_two_list(list_1, list_2):
     j = 0 #index list 2
     while i < len(list_1) and j < len(list_2):
         if int(list_1[i]) <= int(list_2[j]):
-            fusioned_list.append(list1[i])
+            fusioned_list.append(list_1[i])
             i += 1
         else:
             fusioned_list.append(list_2[j])
