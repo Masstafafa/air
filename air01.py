@@ -2,22 +2,21 @@ import sys
 
 # Fonctions utilisées:
 
-def split_chain(string_to_cut, string_separator):
-    list = []
-    nb_separators = string_to_cut.count(string_separator)
+def split_chain(string_to_cut: str, separator: str) -> list[str]:
+    split_words = []
+    separators_counter = string_to_cut.count(separator)
    
-    for i in range(nb_separators):
-       index_separator = string_to_cut.find(string_separator)
-       length_separator = len(string_separator)
-       list.append(string_to_cut[:index_separator])
+    for i in range(separators_counter):
+       index_separator = string_to_cut.find(separator)
+       length_separator = len(separator)
+       split_words.append(string_to_cut[:index_separator])
        string_to_cut = string_to_cut[(index_separator + length_separator):]
-   
-    list.append(string_to_cut)
-    return list
+    split_words.append(string_to_cut)
+    return split_words
 
 # Gestion d'erreurs :
 
-def is_valid_length(arguments):
+def is_valid_length(arguments: list[str]) -> bool:
     if len(arguments) != 2:
         print("Erreur : Merci d'indiquer deux arguments entre guillemets")
         return False
@@ -25,28 +24,28 @@ def is_valid_length(arguments):
 
 # Récupération de données :
 
-def get_arguments():
+def get_arguments() -> list[str]:
     arguments = sys.argv[1:]
     return arguments
 
 # Résolution :
 
-def get_split_chain():
+def print_splited_chain() -> list[str] | None:
     arguments = get_arguments()
     if not is_valid_length(arguments):
         return
-    string_separator = arguments[1]
-    return split_chain(arguments[0], string_separator)
-
-# Affichage :
-
-def display_splited_chain():
-    splited_chain = get_split_chain()
+    
+    separator = arguments[1]
+    string_to_cut = arguments[0]
+    splited_chain = split_chain(string_to_cut, separator)
     if splited_chain is None:
         return
     
     for word in splited_chain:
         print(word)
 
-display_splited_chain()
+
+# Affichage :
+
+print_splited_chain()
 
