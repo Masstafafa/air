@@ -1,10 +1,9 @@
 import sys
-from typing import List, Any
-
+from typing import Any, Optional
 
 # Fonctions utilisées:
 
-def find_single_argument(arguments: list[Any]) -> list[Any]:
+def find_single_argument(arguments: list[Any]) -> Optional[str]:
     # list_with_single_argument = [] -> dans le cas ou on veut aller plus loin et si 
     # il y a plusieurs arguments uniques : bien penser à incrementer la liste avec .append()
     for argument in arguments: #check tous les arguments 
