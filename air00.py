@@ -17,8 +17,8 @@ def split_string(string_to_cut: str, string_separator: list[str]) -> list[str]:
 
 # Gestion d'erreurs :
 
-def is_valid_length(string: list[str]) -> bool:
-    if len(string) != 1:
+def is_valid_length(arguments: list[str]) -> bool:
+    if len(arguments) != 1:
         print("Erreur : Merci d'indiquer un seul argument entre guillemets")
         return False
     return True
