@@ -2,7 +2,7 @@ import sys
 
 # Fonctions utilisées:
 
-def split_chain(string_to_cut: str, separator: str) -> list[str]:
+def split_string(string_to_cut: str, separator: str) -> list[str]:
     split_words = []
     separators_counter = string_to_cut.count(separator)
    
@@ -30,19 +30,19 @@ def get_arguments() -> list[str]:
 
 # Résolution :
 
-def print_splited_chain() -> list[str] | None:
+def print_splited_string() -> list[str] | None:
     arguments = get_arguments()
     if not is_valid_length(arguments):
         return
     
     separator = arguments[1]
     string_to_cut = arguments[0]
-    splited_chain = split_chain(string_to_cut, separator)
+    splited_chain = split_string(string_to_cut, separator)
     for word in splited_chain:
         print(word)
 
 
 # Affichage :
 
-print_splited_chain()
+print_splited_string()
 
