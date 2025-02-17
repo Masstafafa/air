@@ -1,22 +1,22 @@
 import sys
 
 # Fonctions utilisées:
-def split_chain(string_to_cut, string_separator):
-    temporary_word = ""
-    list = []
-    for chr in string_to_cut:
-        if chr in string_separator:
-            list.append(temporary_word)
-            temporary_word = ""
+def split_string(string_to_cut, string_separator):
+    current_word = ""
+    new_list = []
+    for char in string_to_cut:
+        if char in string_separator:
+            new_list.append(current_word)
+            current_word = ""
         else : 
-            temporary_word += chr
-    if temporary_word != "":
-        list.append(temporary_word)
-    return list
+            current_word += char
+    if  current_word != "":
+        new_list.append(current_word)
+    return new_list
 
 # Gestion d'erreurs :
-def is_valid_length(arguments):
-    if len(arguments) != 1:
+def is_valid_length(string):
+    if len(string) != 1:
         print("Erreur : Merci d'indiquer un seul argument entre guillemets")
         return False
     return True
@@ -27,17 +27,17 @@ def get_arguments():
     return arguments
 
 # Résolution :
-def get_split_chain():
-    arguments = get_arguments()
-    if not is_valid_length(arguments):
+def display_splited_chain():
+    string = get_arguments()
+    if not is_valid_length(string):
         return
+    
     string_separator = " ", "\n", "\t"
-    return split_chain(arguments[0], string_separator)
-
-# Affichage :
-def display():
-    splited_chain = get_split_chain()
+    string_to_cut = string[0]
+    splited_chain = split_string(string_to_cut, string_separator)
     for word in splited_chain:
         print(word)
 
-display()
+# Affichage :
+
+display_splited_chain()
