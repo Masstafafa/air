@@ -1,41 +1,48 @@
 import sys
+from typing import List, Any
+
 
 # Fonctions utilisées:
-def find_intruder(arguments):
-    # string_with_no_intruder = [] -> dans le cas ou on veut aller plus loin et si il y a plusieurs arguments uniques : bien penser à increment la liste avec .append()
-    for arg in arguments: #check tous les arguments 
-        count = 0 #compteur de l'argument si il y en a qu'un le retourner 
-        for check_arg in arguments: #on check tous les arguments
-            if arg == check_arg:
+
+def find_single_argument(arguments: list[Any]) -> list[Any]:
+    # list_with_single_argument = [] -> dans le cas ou on veut aller plus loin et si 
+    # il y a plusieurs arguments uniques : bien penser à incrementer la liste avec .append()
+    for argument in arguments: #check tous les arguments 
+        count = 0 #compteur de l'argument 
+        for check_argument in arguments: #on check tous les arguments
+            if argument == check_argument:
                 count += 1 
-        
         if count == 1:  
-            return arg
-        
+            return argument
 
 # Gestion d'erreurs :
-def is_valid_length(arguments):
+
+def is_valid_length(arguments: list[Any]) -> bool:
     if len(arguments) < 3:
         print("Erreur : Merci d'indiquer un minimum de trois arguments avec deux arguments les mêmes")
         return False
     return True
 
 # Récupération de données :
-def get_arguments():
+
+def get_arguments() -> list[Any]:
     arguments = sys.argv[1:]
     return arguments
 
 # Résolution :
-def get_intruder():
+
+def display_single_argument() -> None:
     arguments = get_arguments()
     if not is_valid_length(arguments):
         return
-    return find_intruder(arguments)
+    
+    single_argument = find_single_argument(arguments)
+    if single_argument is None:
+        print("Pas d'intrus trouvé")
+    else:
+        print(single_argument)
+
 
 # Affichage :
-def display():
-    intruder = get_intruder()
-    if intruder is not None:  # Vérifie si on a un résultat
-        print(intruder)
 
-display()
+display_single_argument()
