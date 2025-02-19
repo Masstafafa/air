@@ -21,7 +21,7 @@ def remove_last_array(strings: list[str], remove_string: str) -> list[str]:
                 break
         if not found:
             new_string.append(word)
-        return new_string
+    return new_string
 
 # Gestion d'erreurs :
 
