@@ -16,7 +16,7 @@ def insert_last_number(numbers: list[int], number_to_insert: int) -> list[int]:
         elif number == number_to_insert:
             new_list_numbers.append(number_to_insert)
             find_position = True
-    if not find_position:
+    if find_position == False:
         new_list_numbers.append(number_to_insert)
     return new_list_numbers
 
