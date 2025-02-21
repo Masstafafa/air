@@ -1,9 +1,10 @@
 
 import sys
+from typing import Optional
 
 # Fonctions utilisées:
 
-def quick_sort(numbers: list[int], left: int = 0, right: int = None) -> None:
+def quick_sort(numbers: list[int], left: int = 0, right: Optional[int] = None) -> None:
     if right is None:
         right = len(numbers) - 1
         
