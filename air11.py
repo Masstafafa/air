@@ -3,16 +3,22 @@ import sys
 
 # Fonctions utilisées:
 
-def get_pyramid(first_argument, second_argument):
-    for i in range(second_argument):
-      
+def get_pyramid(char_for_pyramid, number_of_floor):
+    floors = int(number_of_floor)
+    pyramid = []
+    for i in range(floors):
+        spaces = (floors - 1) - i
+        chars = 1 + (2 * i)
+        line = (" " * spaces) + (char_for_pyramid * chars)
+        pyramid.append(line)  
+    return "\n".join(pyramid)
 
 
 # Gestion d'erreurs :
 
 def is_valid_length(arguments: list[str]) -> bool: 
     if len(arguments) != 2:
-        print("Erreur : Merci d'indiquer deux arguments qui seront des nombres entiers")
+        print("Erreur : Merci d'indiquer deux arguments : un caractere et nombre entier")
         return False
     return True
 
@@ -40,16 +46,16 @@ def display_pyramid() -> None:
     if not is_valid_length(arguments):
         return
     
-    first_argument = arguments[0]
-    if not is_alpha(first_argument):
+    char_for_pyramid = arguments[0]
+    if not is_alpha(char_for_pyramid):
         return
     
-    second_argument = arguments[1]
-    if not is_digit(second_argument):
+    number_of_floor = arguments[1]
+    if not is_digit(number_of_floor):
         return
     
-    pyramid = get_pyramid(first_argument, second_argument)
-    
+    pyramid = get_pyramid(char_for_pyramid, number_of_floor)
+    print(pyramid)
 
 # Affichage :
 
