@@ -46,7 +46,7 @@ def print_removed_array() -> None:
     strings = arguments[:-1]
     remove_string = arguments[-1]
     new_array = remove_last_array(strings, remove_string)
-    print(" ".join(map(str, new_array)))
+    print(", ".join(map(str, new_array)))
 
 # Affichage :
 

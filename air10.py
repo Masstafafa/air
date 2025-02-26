@@ -14,6 +14,7 @@ def get_read_file(file_path: str) -> str:
 def is_valid_length(arguments: list[str]) -> bool: 
     if len(arguments) != 1:
         print("Erreur : Merci d'indiquer un seul argument qui est le nom du fichier que vous souhaitez ouvrir")
+        
         return False
     return True
 
