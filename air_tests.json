@@ -109,7 +109,7 @@
         "expected": "Hello World"
       },
       {
-        "command": "python3 air10.py b.txt",
+        "command": "python3 air10.py aa.txt",
         "expected": "Tu peux le faire!"
       }
     ],
