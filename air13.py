@@ -58,10 +58,10 @@ def run_tests(all_exercises: List[str], tests: Dict[str, List[Tuple[str, str]]])
 
 def get_all_files() -> List[str]:
     current_dir = Path.cwd()
-    files_only = []
+    files = []
     for file in current_dir.iterdir():
-        files_only.append(file.name)
-    return sorted(files_only)
+        files.append(file.name)
+    return sorted(files)
 
 # Résolution :
 
